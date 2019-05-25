@@ -1,9 +1,10 @@
 package com.mrskar.samples.model
 
-import androidx.annotation.IntegerRes
+import androidx.annotation.DrawableRes
+import com.mrskar.samples.R
 
 data class ContentModel (
     override var text: String,
     var description: String,
-    @IntegerRes override var background: Int? = null
+    @DrawableRes override var background: Int? = R.drawable.content_bg
 ): FootHeadItemContract

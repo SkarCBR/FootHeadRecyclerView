@@ -1,8 +1,9 @@
 package com.mrskar.samples.model
 
-import androidx.annotation.IntegerRes
+import androidx.annotation.DrawableRes
+import com.mrskar.samples.R
 
 data class HeaderModel (
     override var text: String,
-    @IntegerRes override var background: Int? = null
+    @DrawableRes override var background: Int? = R.color.white
 ): FootHeadItemContract
