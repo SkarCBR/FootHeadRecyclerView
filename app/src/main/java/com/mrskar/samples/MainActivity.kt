@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mrskar.samples.adapter.FootHeadAdapter
+import com.mrskar.samples.model.BounceAnimationModel
 import com.mrskar.samples.model.ContentModel
 import com.mrskar.samples.model.FooterModel
 import com.mrskar.samples.model.HeaderModel
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     private val items = listOf(
         HeaderModel("Titulo 1"),
+        BounceAnimationModel("Bounce Animation",R.anim.interpolator_bounce),
         ContentModel("Contenido 1", "Prueba con el contenido estatico"),
         ContentModel("Contenido 2", "Prueba con el contenido estatico",R.drawable.alternate_content_bg),
         ContentModel("Contenido 3", "Prueba con el contenido estatico"),

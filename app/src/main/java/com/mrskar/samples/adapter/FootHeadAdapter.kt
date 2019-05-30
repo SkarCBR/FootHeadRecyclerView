@@ -3,12 +3,15 @@ package com.mrskar.samples.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.mrskar.samples.R
+import com.mrskar.samples.model.BounceAnimationModel
 import com.mrskar.samples.model.ContentModel
 import com.mrskar.samples.model.FootHeadItemContract
 import com.mrskar.samples.model.FooterModel
 import com.mrskar.samples.model.HeaderModel
+import kotlinx.android.synthetic.main.bounce_view.view.*
 import kotlinx.android.synthetic.main.content_view.view.*
 import kotlinx.android.synthetic.main.footer_view.view.*
 import kotlinx.android.synthetic.main.header_view.view.*
@@ -25,6 +28,7 @@ class FootHeadAdapter(
             is HeaderModel -> HEADER_TYPE
             is ContentModel -> CONTENT_TYPE
             is FooterModel -> FOOTER_TYPE
+            is BounceAnimationModel -> BOUNCE_TYPE
             else -> super.getItemViewType(position)
         }
     }
@@ -43,6 +47,10 @@ class FootHeadAdapter(
                 val footer = LayoutInflater.from(parent.context).inflate(R.layout.footer_view, parent, false)
                 FooterViewHolder(footerView = footer)
             }
+            BOUNCE_TYPE -> {
+                val bounce = LayoutInflater.from(parent.context).inflate(R.layout.bounce_view, parent, false)
+                BounceViewHolder(bounceView = bounce)
+            }
             else -> TODO("Type $viewType not implemented")
         }
     }
@@ -54,6 +62,7 @@ class FootHeadAdapter(
             is HeaderViewHolder -> bind(itemList[position] as HeaderModel, headerListener)
             is ContentViewHolder -> bind(itemList[position] as ContentModel, contentListener)
             is FooterViewHolder -> bind(itemList[position] as FooterModel, footerListener)
+            is BounceViewHolder -> bind(itemList[position] as BounceAnimationModel, null)
         }
     }
 
@@ -61,6 +70,7 @@ class FootHeadAdapter(
         const val HEADER_TYPE = 0
         const val CONTENT_TYPE = 1
         const val FOOTER_TYPE = 2
+        const val BOUNCE_TYPE = 3
     }
 
 
@@ -85,6 +95,21 @@ class FootHeadAdapter(
         fun bind(item: FooterModel, listener: ((FooterModel) -> Unit)?) = with(footerView) {
             footer_textview.text = item.text
             item.background?.let { footer_textview.background = resources.getDrawable(it) }
+            setOnClickListener { listener?.invoke(item) }
+        }
+    }
+
+    inner class BounceViewHolder(val bounceView: View) : RecyclerView.ViewHolder(bounceView) {
+        fun bind(item: BounceAnimationModel, listener: ((BounceAnimationModel) -> Unit)?) = with(bounceView) {
+            bounce_title_textview.text = item.text
+
+            bounce_button.setOnClickListener {
+                val bounceAnimation = AnimationUtils.loadAnimation(context,R.anim.interpolator_overshoot)
+                    bounceAnimation.fillAfter = true
+                bounce_imageview.startAnimation(bounceAnimation)
+            }
+
+            item.background?.let { bounce_parent.background = resources.getDrawable(it) }
             setOnClickListener { listener?.invoke(item) }
         }
     }
