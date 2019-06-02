@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.footer_view.view.*
 import kotlinx.android.synthetic.main.header_view.view.*
 
 class FootHeadAdapter(
-    private val itemList: List<FootHeadItemContract>,
+    private var itemList: List<FootHeadItemContract>,
     private val contentListener: ((ContentModel) -> Unit)? = null,
     private val headerListener: ((HeaderModel) -> Unit)? = null,
     private val footerListener: ((FooterModel) -> Unit)? = null
@@ -56,6 +56,11 @@ class FootHeadAdapter(
     }
 
     override fun getItemCount(): Int = itemList.size
+
+    fun setData(items: List<FootHeadItemContract>) {
+        itemList = items
+        notifyDataSetChanged()
+    }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int): Unit = with(holder) {
         when (this) {
