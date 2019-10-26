@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
 
     private val recyclerFragment = RecyclerViewFragment()
+    private val mapFragment = MapsFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +28,10 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.app_bar_recyclerview -> {
                     replaceFragment(recyclerFragment)
+                    true
+                }
+                R.id.app_bar_map -> {
+                    replaceFragment(mapFragment)
                     true
                 }
                 else -> {
