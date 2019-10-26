@@ -12,21 +12,7 @@ import com.mrskar.samples.model.HeaderModel
 
 class MainViewModel: ViewModel() {
 
-    private val items = listOf(
-        HeaderModel("Titulo 1"),
-        AnimationModel("Bounce Animation", R.anim.interpolator_bounce),
-        ContentModel("Contenido 1", "Prueba con el contenido estatico"),
-        ContentModel("Contenido 2", "Prueba con el contenido estatico", R.drawable.alternate_content_bg),
-        ContentModel("Contenido 3", "Prueba con el contenido estatico"),
-        ContentModel("Contenido 4", "Prueba con el contenido estatico", R.drawable.alternate_content_bg),
-        ContentModel("Contenido 5", "Prueba con el contenido estatico"),
-        ContentModel("Contenido 6", "Prueba con el contenido estatico", R.drawable.alternate_content_bg),
-        ContentModel("Contenido 7", "Prueba con el contenido estatico"),
-        ContentModel("Contenido 8", "Prueba con el contenido estatico", R.drawable.alternate_content_bg),
-        ContentModel("Contenido 9", "Prueba con el contenido estatico"),
-        ContentModel("Contenido 10", "Prueba con el contenido estatico", R.drawable.alternate_content_bg),
-        FooterModel("by Oscar Olivella")
-    )
+    private val items = createList()
 
     private val itemsLiveData = MutableLiveData<List<FootHeadItemContract>>()
 
@@ -35,4 +21,17 @@ class MainViewModel: ViewModel() {
     }
 
     fun getItemsLiveData(): LiveData<List<FootHeadItemContract>> = itemsLiveData
+
+    private fun createList(): List<FootHeadItemContract> {
+        val list = mutableListOf<FootHeadItemContract>()
+        for (i in 0..10) {
+            when (i) {
+                0 -> list.add(HeaderModel("Titulo"))
+                1 -> list.add(AnimationModel("Bounce Animation", R.anim.interpolator_bounce))
+                10 -> list.add(FooterModel("by Oscar Olivella"))
+                else -> list.add(ContentModel("Contenido $i", "Prueba con el contenido estatico"))
+            }
+        }
+        return list
+    }
 }
