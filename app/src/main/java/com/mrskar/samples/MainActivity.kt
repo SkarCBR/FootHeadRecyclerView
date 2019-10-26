@@ -30,8 +30,10 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 else -> {
-
-                    false
+                    for (fragment in supportFragmentManager.fragments) {
+                        supportFragmentManager.beginTransaction().remove(fragment).commit()
+                    }
+                    true
                 }
             }
         }
