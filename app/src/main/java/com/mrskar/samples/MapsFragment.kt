@@ -44,8 +44,8 @@ class MapsFragment : Fragment() {
     }
 
     private fun setInitialPosition(googleMap: GoogleMap) {
-        val sydney = LatLng(-34.0, 151.0)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        val home = LatLng(41.3972851, 2.1276549)
+        googleMap.addMarker(MarkerOptions().position(home).title("Home"))
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(home, 12F))
     }
 }
