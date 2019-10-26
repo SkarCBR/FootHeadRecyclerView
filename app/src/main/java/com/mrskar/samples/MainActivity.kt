@@ -1,20 +1,17 @@
 package com.mrskar.samples
 
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.mrskar.samples.adapter.FootHeadAdapter
-import com.mrskar.samples.model.ContentModel
-import com.mrskar.samples.model.FootHeadItemContract
 import com.mrskar.samples.vm.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
+
+    private val recyclerFragment = RecyclerViewFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,23 +22,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        main_recyclerview.apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = FootHeadAdapter(listOf(), ::showContentAlert)
-            setHasFixedSize(true)
-        }
+        replaceFragment(recyclerFragment)
+        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.app_bar_recyclerview -> {
+                    replaceFragment(recyclerFragment)
+                    true
+                }
+                else -> {
 
-        viewModel.getItemsLiveData().observe(this,
-            Observer<List<FootHeadItemContract>> { items ->
-                (main_recyclerview.adapter as FootHeadAdapter).setData(items)
-            })
+                    false
+                }
+            }
+        }
     }
 
-    private fun showContentAlert(item: ContentModel) {
-        AlertDialog.Builder(this)
-            .setTitle(item.text)
-            .setMessage(item.description)
-            .setPositiveButton("Ok") { dialog, _ -> dialog.dismiss() }
-            .show()
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.main_container, fragment)
+            .commit()
     }
 }
