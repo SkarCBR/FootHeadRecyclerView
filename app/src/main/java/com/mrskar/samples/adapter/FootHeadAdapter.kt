@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.mrskar.samples.R
-import com.mrskar.samples.model.BounceAnimationModel
+import com.mrskar.samples.model.AnimationModel
 import com.mrskar.samples.model.ContentModel
 import com.mrskar.samples.model.FootHeadItemContract
 import com.mrskar.samples.model.FooterModel
@@ -28,7 +28,7 @@ class FootHeadAdapter(
             is HeaderModel -> HEADER_TYPE
             is ContentModel -> CONTENT_TYPE
             is FooterModel -> FOOTER_TYPE
-            is BounceAnimationModel -> BOUNCE_TYPE
+            is AnimationModel -> BOUNCE_TYPE
             else -> super.getItemViewType(position)
         }
     }
@@ -67,7 +67,7 @@ class FootHeadAdapter(
             is HeaderViewHolder -> bind(itemList[position] as HeaderModel, headerListener)
             is ContentViewHolder -> bind(itemList[position] as ContentModel, contentListener)
             is FooterViewHolder -> bind(itemList[position] as FooterModel, footerListener)
-            is BounceViewHolder -> bind(itemList[position] as BounceAnimationModel, null)
+            is BounceViewHolder -> bind(itemList[position] as AnimationModel, null)
         }
     }
 
@@ -105,7 +105,7 @@ class FootHeadAdapter(
     }
 
     inner class BounceViewHolder(val bounceView: View) : RecyclerView.ViewHolder(bounceView) {
-        fun bind(item: BounceAnimationModel, listener: ((BounceAnimationModel) -> Unit)?) = with(bounceView) {
+        fun bind(item: AnimationModel, listener: ((AnimationModel) -> Unit)?) = with(bounceView) {
             bounce_title_textview.text = item.text
 
             bounce_button.setOnClickListener {

@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mrskar.samples.R
-import com.mrskar.samples.model.BounceAnimationModel
+import com.mrskar.samples.model.AnimationModel
 import com.mrskar.samples.model.ContentModel
 import com.mrskar.samples.model.FootHeadItemContract
 import com.mrskar.samples.model.FooterModel
@@ -14,7 +14,7 @@ class MainViewModel: ViewModel() {
 
     private val items = listOf(
         HeaderModel("Titulo 1"),
-        BounceAnimationModel("Bounce Animation", R.anim.interpolator_bounce),
+        AnimationModel("Bounce Animation", R.anim.interpolator_bounce),
         ContentModel("Contenido 1", "Prueba con el contenido estatico"),
         ContentModel("Contenido 2", "Prueba con el contenido estatico", R.drawable.alternate_content_bg),
         ContentModel("Contenido 3", "Prueba con el contenido estatico"),
