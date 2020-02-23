@@ -4,8 +4,6 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
-apply plugin: 'com.justpinch.androidanalyzer'
-
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -48,12 +46,3 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
 }
 
-androidAnalyzer {
-    applicationId = 'com.mrskar.samples'
-    projectName = 'Samples project'
-    projectVersion = '1.0.0'
-    detekt = true
-    unitTestCoverage = true
-    packageName = 'com.mrskar.samples'
-    buildVariant = 'debug'
-}
