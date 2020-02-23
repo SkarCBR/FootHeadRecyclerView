@@ -53,7 +53,7 @@ class RecyclerViewFragment : Fragment() {
             setHasFixedSize(true)
         }
 
-        viewModel.getItemsLiveData().observe(this,
+        viewModel.getItemsLiveData().observe(viewLifecycleOwner,
             Observer<List<FootHeadItemContract>> { items ->
                 (main_recyclerview.adapter as FootHeadAdapter).setData(items)
             })

@@ -1,10 +1,7 @@
-import org.gradle.internal.impldep.aQute.bnd.osgi.Clazz
-
 plugins {
     id("com.android.application")
     id("kotlin-android")
     id("kotlin-android-extensions")
-    id("com.justpinch.androidanalyzer")
     id("project-report")
 }
 
@@ -48,14 +45,4 @@ dependencies {
     androidTestImplementation("org.mockito:mockito-core:1.10.19")
     implementation("androidx.recyclerview:recyclerview:1.1.0")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-}
-
-androidAnalyzer {
-    applicationId = "com.mrskar.samples"
-    projectName = "Samples project"
-    projectVersion = "1.0.0"
-    detekt = true
-    unitTestCoverage = true
-    packageName = "com.mrskar.samples"
-    buildVariant = "debug"
 }
