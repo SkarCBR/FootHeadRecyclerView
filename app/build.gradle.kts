@@ -45,4 +45,5 @@ dependencies {
     androidTestImplementation("org.mockito:mockito-core:1.10.19")
     implementation("androidx.recyclerview:recyclerview:1.1.0")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+    implementation("io.ktor:ktor-client-cio:1.3.1")
 }
