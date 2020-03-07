@@ -1,4 +1,4 @@
-package com.mrskar.samples.model
+package com.mrskar.samples.presentation.model
 
 import androidx.annotation.DrawableRes
 import com.mrskar.samples.R

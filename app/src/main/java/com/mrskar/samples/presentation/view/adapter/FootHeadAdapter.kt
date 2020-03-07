@@ -1,4 +1,4 @@
-package com.mrskar.samples.adapter
+package com.mrskar.samples.presentation.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.mrskar.samples.R
-import com.mrskar.samples.model.AnimationModel
-import com.mrskar.samples.model.ContentModel
-import com.mrskar.samples.model.FootHeadItemContract
-import com.mrskar.samples.model.FooterModel
-import com.mrskar.samples.model.HeaderModel
+import com.mrskar.samples.presentation.model.AnimationModel
+import com.mrskar.samples.presentation.model.ContentModel
+import com.mrskar.samples.presentation.model.FootHeadItemContract
+import com.mrskar.samples.presentation.model.FooterModel
+import com.mrskar.samples.presentation.model.HeaderModel
 import kotlinx.android.synthetic.main.bounce_view.view.*
 import kotlinx.android.synthetic.main.content_view.view.*
 import kotlinx.android.synthetic.main.footer_view.view.*
