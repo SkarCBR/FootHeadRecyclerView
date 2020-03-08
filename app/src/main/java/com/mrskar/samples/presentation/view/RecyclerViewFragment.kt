@@ -8,13 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mrskar.samples.R
 import com.mrskar.samples.presentation.view.adapter.FootHeadAdapter
 import com.mrskar.samples.presentation.model.ContentModel
 import com.mrskar.samples.presentation.model.FootHeadItemContract
 import com.mrskar.samples.presentation.vm.MainViewModel
+import com.mrskar.samples.presentation.vm.getViewModelInstance
 import kotlinx.android.synthetic.main.fragment_recycler_view.*
 
 /**
@@ -28,7 +28,7 @@ class RecyclerViewFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = activity.getViewModelInstance(MainViewModel::class.java)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,10 +44,8 @@ class RecyclerViewFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        initView()
-    }
+        super.onViewCreated(view, savedInstanceState)
 
-    private fun initView() {
         main_recyclerview.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = FootHeadAdapter(listOf(), ::showContentAlert)

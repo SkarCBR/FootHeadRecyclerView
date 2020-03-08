@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.mrskar.samples.R
 import com.mrskar.samples.presentation.vm.MainViewModel
+import com.mrskar.samples.presentation.vm.getViewModelInstance
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,12 +16,13 @@ class MainActivity : AppCompatActivity() {
     private val recyclerFragment =
         RecyclerViewFragment()
     private val mapFragment = MapsFragment()
+    private val fragmentThree = FragmentThree()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = getViewModelInstance(MainViewModel::class.java)
         initView()
     }
 
@@ -34,6 +36,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.app_bar_map -> {
                     replaceFragment(mapFragment)
+                    true
+                }
+                R.id.app_bar_search -> {
+                    replaceFragment(fragmentThree)
                     true
                 }
                 else -> {

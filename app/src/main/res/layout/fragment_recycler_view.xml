@@ -6,9 +6,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.view.RecyclerViewFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/fragment_recycler_view_scene">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/main_recyclerview"
@@ -21,6 +22,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/content_view" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
 </FrameLayout>

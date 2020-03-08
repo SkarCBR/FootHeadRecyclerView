@@ -1,4 +1,4 @@
-package com.mrskar.samples.vm
+package com.mrskar.samples.presentation.vm
 
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel

@@ -33,7 +33,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61")
     implementation("androidx.appcompat:appcompat:1.1.0")
     implementation("androidx.core:core-ktx:1.2.0")
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+    implementation("androidx.constraintlayout:constraintlayout:2.0.0-beta4")
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("com.google.android.material:material:1.1.0")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
@@ -45,5 +45,4 @@ dependencies {
     androidTestImplementation("org.mockito:mockito-core:1.10.19")
     implementation("androidx.recyclerview:recyclerview:1.1.0")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation("io.ktor:ktor-client-cio:1.3.1")
 }
