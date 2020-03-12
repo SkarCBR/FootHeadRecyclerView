@@ -1,0 +1,1 @@
+include(":app", ":observerpattern", "slidinguppanel")
