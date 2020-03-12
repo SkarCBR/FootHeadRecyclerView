@@ -1,26 +1,31 @@
-package com.mrskar.samples.vm
+package com.mrskar.samples.presentation.vm
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mrskar.samples.R
-import com.mrskar.samples.model.AnimationModel
-import com.mrskar.samples.model.ContentModel
-import com.mrskar.samples.model.FootHeadItemContract
-import com.mrskar.samples.model.FooterModel
-import com.mrskar.samples.model.HeaderModel
+import com.mrskar.samples.data.model.TestModel
+import com.mrskar.samples.data.repository.FragmentThreeRepo
+import com.mrskar.samples.presentation.model.AnimationModel
+import com.mrskar.samples.presentation.model.ContentModel
+import com.mrskar.samples.presentation.model.FootHeadItemContract
+import com.mrskar.samples.presentation.model.FooterModel
+import com.mrskar.samples.presentation.model.HeaderModel
 
 class MainViewModel: ViewModel() {
 
+    private val fragmentThreeRepo = FragmentThreeRepo()
     private val items = createList()
 
     private val itemsLiveData = MutableLiveData<List<FootHeadItemContract>>()
+    private val testModelLiveData = MutableLiveData<TestModel>()
 
     init {
         itemsLiveData.value = items
     }
 
     fun getItemsLiveData(): LiveData<List<FootHeadItemContract>> = itemsLiveData
+    fun getTestModelLiveData(): LiveData<TestModel> = testModelLiveData
 
     private fun createList(): List<FootHeadItemContract> {
         val list = mutableListOf<FootHeadItemContract>()
@@ -33,5 +38,9 @@ class MainViewModel: ViewModel() {
             }
         }
         return list
+    }
+
+    fun requestTestData() {
+        testModelLiveData.postValue(fragmentThreeRepo.getPipeDreamTestRequest())
     }
 }

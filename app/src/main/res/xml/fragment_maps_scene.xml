@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/map"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/motion_contoller"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@id/map" />
+        <Constraint android:id="@id/motion_contoller" />
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="1500">
+        <OnClick app:targetId="@id/motion_contoller" />
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0.2"
+                app:framePosition="0"
+                app:motionTarget="@+id/map" />
+            <KeyAttribute
+                android:alpha="0.5"
+                app:framePosition="50"
+                app:motionTarget="@+id/map" />
+            <KeyAttribute
+                android:alpha="1"
+                app:framePosition="100"
+                app:motionTarget="@+id/map" />
+        </KeyFrameSet>
+    </Transition>
+    <Transition
+        app:constraintSetEnd="@+id/start"
+        app:constraintSetStart="@+id/end"
+        app:duration="1500"
+        app:transitionDisable="true">
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="0.2"
+                app:framePosition="100"
+                app:motionTarget="@+id/map" />
+            <KeyAttribute
+                android:alpha="0.5"
+                app:framePosition="50"
+                app:motionTarget="@+id/map" />
+            <KeyAttribute
+                android:alpha="1"
+                app:framePosition="0"
+                app:motionTarget="@+id/map" />
+        </KeyFrameSet>
+    </Transition>
+</MotionScene>

@@ -1,4 +1,4 @@
-package com.mrskar.samples
+package com.mrskar.samples.presentation.view
 
 import androidx.fragment.app.Fragment
 
@@ -13,6 +13,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.mrskar.samples.R
 
 class MapsFragment : Fragment() {
 

@@ -1,4 +1,4 @@
-package com.mrskar.samples.model
+package com.mrskar.samples.presentation.model
 
 interface FootHeadItemContract {
     var text: String
