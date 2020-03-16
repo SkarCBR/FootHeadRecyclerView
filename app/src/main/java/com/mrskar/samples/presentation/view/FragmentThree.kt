@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.mrskar.samples.R
+import com.mrskar.samples.presentation.view.custom.DetailBottomDialogFragment
 import com.mrskar.samples.presentation.vm.MainViewModel
 import com.mrskar.samples.presentation.vm.getViewModelInstance
-import kotlinx.android.synthetic.main.bottom_sheet_layout.*
+import kotlinx.android.synthetic.main.fragment_three.*
 
 class FragmentThree : Fragment() {
 
@@ -32,20 +33,9 @@ class FragmentThree : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getTestModelLiveData().observe(viewLifecycleOwner,
-            Observer {
-                bottom_sheet_textview.text = it.javaClass.simpleName
-                    .plus("\n")
-                    .plus(it.id.toString())
-                    .plus("\n")
-                    .plus(it.name)
-                    .plus("\n")
-                    .plus(it.list)
-            })
-        bottom_sheet_request_button.setOnClickListener { getData() }
+        fragment3_show_button.setOnClickListener {
+            DetailBottomDialogFragment().show(childFragmentManager, "bottomsheet")
+        }
     }
 
-    private fun getData() {
-        viewModel.requestTestData()
-    }
 }
