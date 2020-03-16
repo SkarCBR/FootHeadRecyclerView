@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import com.mrskar.samples.R
 import com.mrskar.samples.presentation.vm.MainViewModel
 import com.mrskar.samples.presentation.vm.getViewModelInstance
-import kotlinx.android.synthetic.main.fragment_three.*
+import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 
 class FragmentThree : Fragment() {
 
@@ -34,7 +34,7 @@ class FragmentThree : Fragment() {
 
         viewModel.getTestModelLiveData().observe(viewLifecycleOwner,
             Observer {
-                fragment3_textview.text = it.javaClass.simpleName
+                bottom_sheet_textview.text = it.javaClass.simpleName
                     .plus("\n")
                     .plus(it.id.toString())
                     .plus("\n")
@@ -42,7 +42,7 @@ class FragmentThree : Fragment() {
                     .plus("\n")
                     .plus(it.list)
             })
-        request_button.setOnClickListener { getData() }
+        bottom_sheet_request_button.setOnClickListener { getData() }
     }
 
     private fun getData() {

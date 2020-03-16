@@ -19,17 +19,26 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/bottom_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
         <Constraint android:id="@id/map" />
-        <Constraint android:id="@id/motion_contoller" />
+        <Constraint android:id="@id/motion_contoller"
+            android:visibility="gone" />
+        <Constraint android:id="@id/bottom_view" />
     </ConstraintSet>
 
     <Transition
         app:constraintSetEnd="@id/end"
         app:constraintSetStart="@+id/start"
-        app:duration="1500">
+        app:duration="1000">
         <OnClick app:targetId="@id/motion_contoller" />
         <KeyFrameSet>
             <KeyAttribute
@@ -44,26 +53,10 @@
                 android:alpha="1"
                 app:framePosition="100"
                 app:motionTarget="@+id/map" />
-        </KeyFrameSet>
-    </Transition>
-    <Transition
-        app:constraintSetEnd="@+id/start"
-        app:constraintSetStart="@+id/end"
-        app:duration="1500"
-        app:transitionDisable="true">
-        <KeyFrameSet>
-            <KeyAttribute
-                android:alpha="0.2"
+            <KeyTrigger
+                app:motionTarget="@id/motion_contoller"
                 app:framePosition="100"
-                app:motionTarget="@+id/map" />
-            <KeyAttribute
-                android:alpha="0.5"
-                app:framePosition="50"
-                app:motionTarget="@+id/map" />
-            <KeyAttribute
-                android:alpha="1"
-                app:framePosition="0"
-                app:motionTarget="@+id/map" />
+                app:onCross="testMethod" />
         </KeyFrameSet>
     </Transition>
 </MotionScene>
