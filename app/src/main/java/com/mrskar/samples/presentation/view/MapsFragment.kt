@@ -3,6 +3,7 @@ package com.mrskar.samples.presentation.view
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.mrskar.samples.R
+import kotlinx.android.synthetic.main.fragment_maps.*
 
 class MapsFragment : Fragment() {
 
@@ -42,11 +44,16 @@ class MapsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
+
     }
 
     private fun setInitialPosition(googleMap: GoogleMap) {
         val home = LatLng(41.3972851, 2.1276549)
         googleMap.addMarker(MarkerOptions().position(home).title("Home"))
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(home, 12F))
+    }
+
+    fun testMethod() {
+        Log.d("TestApp", "testMethod executed!")
     }
 }
