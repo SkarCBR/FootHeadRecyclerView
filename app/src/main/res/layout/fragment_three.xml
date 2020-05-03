@@ -8,6 +8,15 @@
     tools:context="com.mrskar.samples.presentation.view.MainActivity"
     android:background="@color/white">
 
-    <include layout="@layout/bottom_sheet_layout" />
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".presentation.view.MapsFragment" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
