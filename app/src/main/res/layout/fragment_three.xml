@@ -4,8 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
-    tools:context=".presentation.view.MainActivity"
+    android:layout_height="match_parent"
+    tools:context="com.mrskar.samples.presentation.view.MainActivity"
     android:background="@color/white">
 
     <include layout="@layout/bottom_sheet_layout" />

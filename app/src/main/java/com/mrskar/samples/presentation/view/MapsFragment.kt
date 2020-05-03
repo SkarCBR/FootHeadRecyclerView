@@ -44,16 +44,11 @@ class MapsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
-
     }
 
     private fun setInitialPosition(googleMap: GoogleMap) {
         val home = LatLng(41.3972851, 2.1276549)
         googleMap.addMarker(MarkerOptions().position(home).title("Home"))
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(home, 12F))
-    }
-
-    fun testMethod() {
-        Log.d("TestApp", "testMethod executed!")
     }
 }
