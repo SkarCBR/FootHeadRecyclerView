@@ -1,13 +1,12 @@
-package com.mrskar.samples.presentation.view
+package com.mrskar.samples
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.mrskar.samples.R
-import com.mrskar.samples.presentation.vm.MainViewModel
-import com.mrskar.samples.presentation.vm.getViewModelInstance
+import com.mrskar.samples.vm.MainViewModel
+import com.mrskar.samples.vm.getViewModelInstance
 
 class MainActivity : AppCompatActivity() {
 

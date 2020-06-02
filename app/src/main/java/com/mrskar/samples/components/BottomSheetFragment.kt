@@ -1,25 +1,24 @@
-package com.mrskar.samples.presentation.view.custom
+package com.mrskar.samples.components
 
-import android.content.DialogInterface
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.mrskar.samples.R
-import com.mrskar.samples.presentation.vm.MainViewModel
-import com.mrskar.samples.presentation.vm.getViewModelInstance
+import com.mrskar.samples.vm.MainViewModel
+import com.mrskar.samples.vm.getViewModelInstance
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 
-class DetailBottomDialogFragment: BottomSheetDialogFragment() {
+class BottomSheetFragment: BottomSheetDialogFragment() {
 
     private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         viewModel = activity.getViewModelInstance(MainViewModel::class.java)
     }
 
@@ -28,12 +27,16 @@ class DetailBottomDialogFragment: BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.bottom_sheet_layout, container)
+        return inflater.inflate(R.layout.bottom_sheet_layout, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpView()
+        setUpViewModel()
+    }
 
+    private fun setUpViewModel() {
         viewModel.getTestModelLiveData().observe(viewLifecycleOwner,
             Observer {
                 bottom_sheet_textview.text = it.javaClass.simpleName
@@ -47,19 +50,16 @@ class DetailBottomDialogFragment: BottomSheetDialogFragment() {
         bottom_sheet_request_button.setOnClickListener { getData() }
     }
 
+    private fun setUpView() {
+        // Set dialog to full screen
+        dialog?.setOnShowListener { dialog ->
+            val bottomSheetInteral =
+                (dialog as BottomSheetDialog).findViewById<View>(R.id.bottom_sheet_container)
+            bottomSheetInteral?.minimumHeight = Resources.getSystem().displayMetrics.heightPixels
+        }
+    }
+
     private fun getData() {
         viewModel.requestTestData()
-    }
-
-    override fun show(manager: FragmentManager, tag: String?) {
-        super.show(manager, tag)
-    }
-
-    override fun onCancel(dialog: DialogInterface) {
-        super.onCancel(dialog)
-    }
-
-    override fun onDismiss(dialog: DialogInterface) {
-        super.onDismiss(dialog)
     }
 }

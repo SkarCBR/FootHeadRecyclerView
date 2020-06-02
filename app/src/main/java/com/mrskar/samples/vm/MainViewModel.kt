@@ -1,16 +1,16 @@
-package com.mrskar.samples.presentation.vm
+package com.mrskar.samples.vm
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mrskar.samples.R
-import com.mrskar.samples.data.model.TestModel
-import com.mrskar.samples.data.repository.FragmentThreeRepo
-import com.mrskar.samples.presentation.model.AnimationModel
-import com.mrskar.samples.presentation.model.ContentModel
-import com.mrskar.samples.presentation.model.FootHeadItemContract
-import com.mrskar.samples.presentation.model.FooterModel
-import com.mrskar.samples.presentation.model.HeaderModel
+import com.mrskar.samples.fragmentthree.data.model.TestModel
+import com.mrskar.samples.fragmentthree.data.repository.FragmentThreeRepo
+import com.mrskar.samples.recyclerview.presentation.model.AnimationModel
+import com.mrskar.samples.recyclerview.presentation.model.ContentModel
+import com.mrskar.samples.recyclerview.presentation.model.FootHeadItemContract
+import com.mrskar.samples.recyclerview.presentation.model.FooterModel
+import com.mrskar.samples.recyclerview.presentation.model.HeaderModel
 
 class MainViewModel: ViewModel() {
 
