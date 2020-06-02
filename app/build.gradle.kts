@@ -45,4 +45,9 @@ dependencies {
     androidTestImplementation("org.mockito:mockito-core:3.2.4")
     implementation("androidx.recyclerview:recyclerview:1.1.0")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+
+    //Navigation Component
+    implementation("androidx.navigation:navigation-fragment-ktx:2.3.0-beta01")
+    implementation("androidx.navigation:navigation-ui-ktx:2.3.0-beta01")
+    androidTestImplementation("androidx.navigation:navigation-testing:2.3.0-beta01")
 }
