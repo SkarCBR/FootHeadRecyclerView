@@ -8,7 +8,7 @@ buildscript {
         maven {url = uri("https://raw.github.com/pinchbv/android-analyzer/master/repo") }
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:4.0.0-beta02")
+        classpath("com.android.tools.build:gradle:4.0.0")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.61")
         classpath("com.justpinch:androidanalyzer:1.1.1")
         // NOTE: Do not place your application dependencies here; they belong
