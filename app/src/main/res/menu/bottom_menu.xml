@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/app_bar_recyclerview"
-        android:title="RecyclerView"
-        android:icon="@drawable/ic_list_24px"/>
+        android:id="@+id/recyclerViewFragment"
+        android:icon="@drawable/ic_list_24px"
+        android:orderInCategory="1"
+        android:title="RecyclerView" />
 
     <item
-        android:id="@+id/app_bar_map"
-        android:title="Map"
-        android:icon="@drawable/ic_map_24px"/>
+        android:id="@+id/mapsFragment"
+        android:icon="@drawable/ic_map_24px"
+        android:orderInCategory="2"
+        android:title="Map" />
 
     <item
-        android:id="@+id/app_bar_search"
+        android:id="@+id/fragmentThree"
         android:icon="@drawable/ic_search_black_24dp"
-        android:title="Search"
-        app:actionViewClass="android.widget.SearchView" />
+        android:orderInCategory="3"
+        android:title="Fragment Three" />
 </menu>
