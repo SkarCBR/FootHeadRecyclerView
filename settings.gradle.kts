@@ -1,1 +1,1 @@
-include(":app", ":observerpattern", "slidinguppanel")
+include(":app", ":observerpattern")

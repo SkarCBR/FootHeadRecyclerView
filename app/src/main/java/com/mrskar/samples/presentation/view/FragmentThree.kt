@@ -5,37 +5,56 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.mrskar.samples.R
-import com.mrskar.samples.presentation.view.custom.DetailBottomDialogFragment
-import com.mrskar.samples.presentation.vm.MainViewModel
-import com.mrskar.samples.presentation.vm.getViewModelInstance
-import kotlinx.android.synthetic.main.fragment_three.*
+import com.mrskar.samples.presentation.view.components.BottomSheetFragment
 
 class FragmentThree : Fragment() {
 
-    private lateinit var viewModel: MainViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        viewModel = activity.getViewModelInstance(MainViewModel::class.java)
+    private val callback = OnMapReadyCallback { googleMap ->
+        /**
+         * Manipulates the map once available.
+         * This callback is triggered when the map is ready to be used.
+         * This is where we can add markers or lines, add listeners or move the camera.
+         * In this case, we just add a marker near Sydney, Australia.
+         * If Google Play services is not installed on the device, the user will be prompted to
+         * install it inside the SupportMapFragment. This method will only be triggered once the
+         * user has installed Google Play services and returned to the app.
+         */
+        setInitialPosition(googleMap)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_three, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        fragment3_show_button.setOnClickListener {
-            DetailBottomDialogFragment().show(childFragmentManager, "bottomsheet")
+        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+        mapFragment?.getMapAsync(callback)
+    }
+
+    private fun setInitialPosition(googleMap: GoogleMap) {
+        val home = LatLng(41.3972851, 2.1276549)
+        googleMap.addMarker(MarkerOptions().position(home).title("Home"))
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(home, 12F))
+        googleMap.setOnMarkerClickListener {
+            showBottomSheetFragment()
+            true
         }
     }
 
+    private fun showBottomSheetFragment() {
+        val bottomSheetFragment = BottomSheetFragment()
+        bottomSheetFragment.show(childFragmentManager, bottomSheetFragment.tag)
+    }
 }
