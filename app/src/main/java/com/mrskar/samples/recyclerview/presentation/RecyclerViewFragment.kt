@@ -53,7 +53,7 @@ class RecyclerViewFragment : Fragment() {
         }
 
         viewModel.getItemsLiveData().observe(viewLifecycleOwner,
-            Observer<List<FootHeadItemContract>> { items ->
+            Observer { items ->
                 (main_recyclerview.adapter as FootHeadAdapter).setData(items)
             })
     }

@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -35,7 +36,7 @@ class FragmentThree : Fragment() {
          */
         setUpMap(googleMap)
     }
-    private lateinit var bottomSheetBehavior: BottomSheetBehavior<View>
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<LinearLayout>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,18 +51,21 @@ class FragmentThree : Fragment() {
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
 
-        bottomSheetBehavior = BottomSheetBehavior.from(bottom_sheet_container)
-        bottomSheetBehavior.addBottomSheetCallback(object :
-            BottomSheetBehavior.BottomSheetCallback() {
-            override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                //TODO("Not yet implemented")
-            }
+        bottomSheetBehavior =
+            BottomSheetBehavior.from(bottom_sheet_container).apply {
+                state = STATE_HIDDEN
+                addBottomSheetCallback(object :
+                    BottomSheetBehavior.BottomSheetCallback() {
+                    override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                        //TODO("Not yet implemented")
+                    }
 
-            override fun onStateChanged(bottomSheet: View, newState: Int) {
-                handleBottomSheetState()
-            }
+                    override fun onStateChanged(bottomSheet: View, newState: Int) {
+                        handleBottomSheetState()
+                    }
 
-        })
+                })
+            }
     }
 
     private fun setUpMap(googleMap: GoogleMap) {
