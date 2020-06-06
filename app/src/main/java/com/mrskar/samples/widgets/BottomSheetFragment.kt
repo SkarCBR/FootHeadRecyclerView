@@ -33,6 +33,7 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpView()
         setUpViewModel()
+        getData()
     }
 
     private fun setUpViewModel() {
@@ -41,12 +42,13 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
     }
 
     private fun setUpView() {
-        // Set dialog to full screen
+        /* Set dialog to full screen
         dialog?.setOnShowListener { dialog ->
             val bottomSheetInteral =
                 (dialog as BottomSheetDialog).findViewById<View>(R.id.bottom_sheet_container)
             bottomSheetInteral?.minimumHeight = Resources.getSystem().displayMetrics.heightPixels
         }
+         */
     }
 
     private fun getData() {

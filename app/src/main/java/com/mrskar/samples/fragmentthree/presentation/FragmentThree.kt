@@ -59,22 +59,20 @@ class FragmentThree : Fragment() {
                     override fun onStateChanged(bottomSheet: View, newState: Int) {
                         handleBottomSheetState()
                     }
-
                 })
             }
     }
 
     private fun setUpMap(googleMap: GoogleMap) {
         val home = LatLng(41.3972851, 2.1276549)
-        googleMap.addMarker(MarkerOptions().position(home).title("Home"))
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(home, 12F))
-        googleMap.setOnMarkerClickListener {
-            showBottomSheetView()
-            true
+        googleMap.apply {
+            addMarker(MarkerOptions().position(home).title("Home"))
+            animateCamera(CameraUpdateFactory.newLatLngZoom(home, 12F))
+            setOnMarkerClickListener { showBottomSheetView() }
         }
     }
 
-    private fun showBottomSheetView() {
+    private fun showBottomSheetView(): Boolean {
         when (bottomSheetBehavior.state) {
             STATE_EXPANDED -> {
                 bottomSheetBehavior.state = STATE_COLLAPSED
@@ -86,6 +84,7 @@ class FragmentThree : Fragment() {
                 bottomSheetBehavior.state = STATE_EXPANDED
             }
         }
+        return true
     }
 
     private fun handleBottomSheetState() {

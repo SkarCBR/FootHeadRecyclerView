@@ -12,8 +12,11 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.mrskar.samples.R
+import com.mrskar.samples.widgets.BottomSheetFragment
 
 class MapsFragment : Fragment() {
 
@@ -46,7 +49,35 @@ class MapsFragment : Fragment() {
 
     private fun setInitialPosition(googleMap: GoogleMap) {
         val home = LatLng(41.3972851, 2.1276549)
-        googleMap.addMarker(MarkerOptions().position(home).title("Home"))
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(home, 12F))
+        val work = LatLng(41.3864328,2.1685704)
+        googleMap.apply {
+            addMarker(MarkerOptions().position(home).title("Home"))
+            addMarker(MarkerOptions().position(work).title("Work"))
+            animateCamera(CameraUpdateFactory.newLatLngZoom(home, 12F))
+            setOnMarkerClickListener { handleMarkerClick(it) }
+        }
+    }
+
+    private fun handleMarkerClick(marker: Marker): Boolean {
+        return when(marker.title) {
+            "Home" -> { showBottomSheetDialogFragment() }
+            "Work" -> { showBottomSheetDialog() }
+            else -> false
+        }
+    }
+
+    private fun showBottomSheetDialogFragment(): Boolean {
+        val bottomSheetFragment = BottomSheetFragment()
+        bottomSheetFragment.show(parentFragmentManager,bottomSheetFragment.tag)
+        return true
+    }
+
+    private fun showBottomSheetDialog(): Boolean {
+        context?.let {
+            BottomSheetDialog(it).apply {
+                setContentView(R.layout.bottom_sheet_layout)
+            }.show()
+        }
+        return true
     }
 }
