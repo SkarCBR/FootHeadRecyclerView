@@ -38,16 +38,7 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
 
     private fun setUpViewModel() {
         viewModel.getTestModelLiveData().observe(viewLifecycleOwner,
-            Observer {
-                bottom_sheet_textview.text = it.javaClass.simpleName
-                    .plus("\n")
-                    .plus(it.id.toString())
-                    .plus("\n")
-                    .plus(it.name)
-                    .plus("\n")
-                    .plus(it.list)
-            })
-        bottom_sheet_request_button.setOnClickListener { getData() }
+            Observer {})
     }
 
     private fun setUpView() {
