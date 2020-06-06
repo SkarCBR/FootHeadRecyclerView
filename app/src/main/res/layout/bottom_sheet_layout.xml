@@ -3,23 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/bottom_sheet_container"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     android:background="@drawable/bg_bottomsheet"
     app:behavior_hideable="true"
     app:behavior_peekHeight="90dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/bottom_sheet_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="visible"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -88,31 +90,31 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:drawableLeft="@drawable/ic_marker_black_18dp"
+        android:layout_margin="16dp"
+        android:drawableStart="@drawable/ic_marker_black_18dp"
         android:drawablePadding="16dp"
         android:text="740 Valencia St, San Fracisco, CA" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:drawableLeft="@drawable/ic_call_black_18dp"
+        android:layout_margin="16dp"
+        android:drawableStart="@drawable/ic_call_black_18dp"
         android:drawablePadding="16dp"
         android:text="(415) 349-0942" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:drawableLeft="@drawable/ic_schedule_black_18dp"
+        android:layout_margin="16dp"
+        android:drawableStart="@drawable/ic_schedule_black_18dp"
         android:drawablePadding="16dp"
         android:text="Wed, 10 AM - 9 PM" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_margin="16dp"
         android:background="@color/colorPrimary"
         android:text="Go To Maps"
         android:textColor="#fff" />

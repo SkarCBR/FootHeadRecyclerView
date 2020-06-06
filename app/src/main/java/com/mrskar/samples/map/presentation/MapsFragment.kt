@@ -20,6 +20,9 @@ import com.mrskar.samples.widgets.BottomSheetFragment
 
 class MapsFragment : Fragment() {
 
+    private val homeTitle = "Home"
+    private val workTitle = "Work"
+
     private val callback = OnMapReadyCallback { googleMap ->
         /**
          * Manipulates the map once available.
@@ -51,8 +54,8 @@ class MapsFragment : Fragment() {
         val home = LatLng(41.3972851, 2.1276549)
         val work = LatLng(41.3864328,2.1685704)
         googleMap.apply {
-            addMarker(MarkerOptions().position(home).title("Home"))
-            addMarker(MarkerOptions().position(work).title("Work"))
+            addMarker(MarkerOptions().position(home).title(homeTitle))
+            addMarker(MarkerOptions().position(work).title(workTitle))
             animateCamera(CameraUpdateFactory.newLatLngZoom(home, 12F))
             setOnMarkerClickListener { handleMarkerClick(it) }
         }
@@ -60,8 +63,8 @@ class MapsFragment : Fragment() {
 
     private fun handleMarkerClick(marker: Marker): Boolean {
         return when(marker.title) {
-            "Home" -> { showBottomSheetDialogFragment() }
-            "Work" -> { showBottomSheetDialog() }
+            homeTitle -> { showBottomSheetDialogFragment() }
+            workTitle -> { showBottomSheetDialog() }
             else -> false
         }
     }
