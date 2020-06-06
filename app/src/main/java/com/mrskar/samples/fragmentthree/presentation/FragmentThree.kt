@@ -1,4 +1,4 @@
-package com.mrskar.samples.presentation.view
+package com.mrskar.samples.fragmentthree.presentation
 
 import android.os.Bundle
 import android.util.Log

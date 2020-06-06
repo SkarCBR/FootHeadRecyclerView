@@ -1,6 +1,6 @@
-package com.mrskar.samples.data.sources
+package com.mrskar.samples.fragmentthree.data.sources
 
-import com.mrskar.samples.data.model.TestModel
+import com.mrskar.samples.fragmentthree.data.model.TestModel
 import kotlin.random.Random
 
 class FragmentThreeDS {

@@ -1,4 +1,4 @@
-package com.mrskar.samples.presentation.view
+package com.mrskar.samples.map.presentation
 
 import androidx.fragment.app.Fragment
 

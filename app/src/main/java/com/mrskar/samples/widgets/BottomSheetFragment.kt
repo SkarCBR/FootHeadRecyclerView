@@ -1,4 +1,4 @@
-package com.mrskar.samples.presentation.view.components
+package com.mrskar.samples.widgets
 
 import android.content.res.Resources
 import android.os.Bundle
@@ -9,9 +9,8 @@ import androidx.lifecycle.Observer
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.mrskar.samples.R
-import com.mrskar.samples.presentation.vm.MainViewModel
-import com.mrskar.samples.presentation.vm.getViewModelInstance
-import kotlinx.android.synthetic.main.bottom_sheet_layout.*
+import com.mrskar.samples.vm.MainViewModel
+import com.mrskar.samples.vm.getViewModelInstance
 
 class BottomSheetFragment: BottomSheetDialogFragment() {
 

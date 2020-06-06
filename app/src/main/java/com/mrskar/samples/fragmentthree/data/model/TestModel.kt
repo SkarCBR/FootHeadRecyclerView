@@ -1,4 +1,4 @@
-package com.mrskar.samples.data.model
+package com.mrskar.samples.fragmentthree.data.model
 
 data class TestModel(
     val id: Int,

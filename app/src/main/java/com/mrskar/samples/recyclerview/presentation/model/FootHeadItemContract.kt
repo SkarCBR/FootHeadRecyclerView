@@ -1,4 +1,4 @@
-package com.mrskar.samples.presentation.model
+package com.mrskar.samples.recyclerview.presentation.model
 
 interface FootHeadItemContract {
     var text: String

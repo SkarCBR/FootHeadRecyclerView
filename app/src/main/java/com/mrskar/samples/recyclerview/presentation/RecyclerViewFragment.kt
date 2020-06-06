@@ -1,4 +1,4 @@
-package com.mrskar.samples.presentation.view
+package com.mrskar.samples.recyclerview.presentation
 
 import android.content.Context
 import android.os.Bundle
@@ -10,11 +10,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mrskar.samples.R
-import com.mrskar.samples.presentation.view.adapter.FootHeadAdapter
-import com.mrskar.samples.presentation.model.ContentModel
-import com.mrskar.samples.presentation.model.FootHeadItemContract
-import com.mrskar.samples.presentation.vm.MainViewModel
-import com.mrskar.samples.presentation.vm.getViewModelInstance
+import com.mrskar.samples.recyclerview.presentation.adapter.FootHeadAdapter
+import com.mrskar.samples.recyclerview.presentation.model.ContentModel
+import com.mrskar.samples.recyclerview.presentation.model.FootHeadItemContract
+import com.mrskar.samples.vm.MainViewModel
+import com.mrskar.samples.vm.getViewModelInstance
 import kotlinx.android.synthetic.main.fragment_recycler_view.*
 
 /**

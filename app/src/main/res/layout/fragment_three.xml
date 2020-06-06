@@ -5,7 +5,7 @@
     android:id="@+id/fragment_three_parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mrskar.samples.presentation.view.MainActivity"
+    tools:context="com.mrskar.samples.MainActivity"
     android:background="@color/white">
 
     <androidx.fragment.app.FragmentContainerView
@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".presentation.view.MapsFragment"
+        tools:context=".map.presentation.MapsFragment"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <include layout="@layout/bottom_sheet_layout"/>
