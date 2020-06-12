@@ -46,8 +46,8 @@ class FragmentThree : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //val mapFragment = childFragmentManager.findFragmentById(R.id.fragment_three_map) as SupportMapFragment?
-        //mapFragment?.getMapAsync(callback)
+        val mapFragment = childFragmentManager.findFragmentById(R.id.fragment_three_map) as SupportMapFragment?
+        mapFragment?.getMapAsync(callback)
 
         bottom_sheet_toolbar.setNavigationIcon(R.drawable.ic_arrow_back_24dp)
         bottom_sheet_toolbar.setNavigationOnClickListener { hideBottomSheetView() }

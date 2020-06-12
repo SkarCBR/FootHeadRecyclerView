@@ -7,17 +7,18 @@
 
     <fragment
         android:id="@+id/recyclerViewFragment"
-        android:name="com.mrskar.samples.recyclerview.presentation.view.RecyclerViewFragment"
+        android:name="com.mrskar.samples.recyclerview.presentation.RecyclerViewFragment"
         android:label="fragment_recycler_view"
         tools:layout="@layout/fragment_recycler_view" />
     <fragment
         android:id="@+id/mapsFragment"
-        android:name="com.mrskar.samples.map.presentation.view.MapsFragment"
+        android:name="com.mrskar.samples.map.presentation.MapsFragment"
         android:label="MapsFragment"
         tools:layout="@layout/fragment_maps" />
     <fragment
         android:id="@+id/fragmentThree"
-        android:name="com.mrskar.samples.fragmentthree.presentation.view.FragmentThree"
+        android:name="com.mrskar.samples.fragmentthree.presentation.FragmentThree"
         android:label="FragmentThree"
         tools:layout="@layout/fragment_three" />
+
 </navigation>
