@@ -1,4 +1,4 @@
-package com.mrskar.samples.recyclerview.presentation.view.adapter
+package com.mrskar.samples.recyclerview.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.View

@@ -1,3 +1,5 @@
+package com.mrskar.samples.vm
+
 sealed class ViewStates<T> {
     class Loading<T> : ViewStates<T>()
     class Success<T>(val data: T) : ViewStates<T>()

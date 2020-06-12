@@ -1,4 +1,4 @@
-package com.mrskar.samples.components
+package com.mrskar.samples.widgets
 
 import android.content.res.Resources
 import android.os.Bundle
@@ -11,7 +11,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.mrskar.samples.R
 import com.mrskar.samples.vm.MainViewModel
 import com.mrskar.samples.vm.getViewModelInstance
-import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 
 class BottomSheetFragment: BottomSheetDialogFragment() {
 
@@ -34,29 +33,22 @@ class BottomSheetFragment: BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpView()
         setUpViewModel()
+        getData()
     }
 
     private fun setUpViewModel() {
         viewModel.getTestModelLiveData().observe(viewLifecycleOwner,
-            Observer {
-                bottom_sheet_textview.text = it.javaClass.simpleName
-                    .plus("\n")
-                    .plus(it.id.toString())
-                    .plus("\n")
-                    .plus(it.name)
-                    .plus("\n")
-                    .plus(it.list)
-            })
-        bottom_sheet_request_button.setOnClickListener { getData() }
+            Observer {})
     }
 
     private fun setUpView() {
-        // Set dialog to full screen
+        /* Set dialog to full screen
         dialog?.setOnShowListener { dialog ->
             val bottomSheetInteral =
                 (dialog as BottomSheetDialog).findViewById<View>(R.id.bottom_sheet_container)
             bottomSheetInteral?.minimumHeight = Resources.getSystem().displayMetrics.heightPixels
         }
+         */
     }
 
     private fun getData() {

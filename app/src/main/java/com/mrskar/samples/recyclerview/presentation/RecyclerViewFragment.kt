@@ -1,4 +1,4 @@
-package com.mrskar.samples.recyclerview.presentation.view
+package com.mrskar.samples.recyclerview.presentation
 
 import android.content.Context
 import android.os.Bundle
@@ -10,7 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mrskar.samples.R
-import com.mrskar.samples.recyclerview.presentation.view.adapter.FootHeadAdapter
+import com.mrskar.samples.recyclerview.presentation.adapter.FootHeadAdapter
 import com.mrskar.samples.recyclerview.presentation.model.ContentModel
 import com.mrskar.samples.recyclerview.presentation.model.FootHeadItemContract
 import com.mrskar.samples.vm.MainViewModel
@@ -53,7 +53,7 @@ class RecyclerViewFragment : Fragment() {
         }
 
         viewModel.getItemsLiveData().observe(viewLifecycleOwner,
-            Observer<List<FootHeadItemContract>> { items ->
+            Observer { items ->
                 (main_recyclerview.adapter as FootHeadAdapter).setData(items)
             })
     }
@@ -77,8 +77,7 @@ class RecyclerViewFragment : Fragment() {
          */
         @JvmStatic
         fun newInstance() =
-            RecyclerViewFragment()
-                .apply {
+            RecyclerViewFragment().apply {
                 arguments = Bundle().apply {}
             }
     }

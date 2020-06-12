@@ -1,9 +1,8 @@
-package com.mrskar.samples.map.presentation.view
+package com.mrskar.samples.map.presentation
 
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +12,16 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.mrskar.samples.R
-import kotlinx.android.synthetic.main.fragment_maps.*
+import com.mrskar.samples.widgets.BottomSheetFragment
 
 class MapsFragment : Fragment() {
+
+    private val homeTitle = "Home"
+    private val workTitle = "Work"
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -48,7 +52,35 @@ class MapsFragment : Fragment() {
 
     private fun setInitialPosition(googleMap: GoogleMap) {
         val home = LatLng(41.3972851, 2.1276549)
-        googleMap.addMarker(MarkerOptions().position(home).title("Home"))
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(home, 12F))
+        val work = LatLng(41.3864328,2.1685704)
+        googleMap.apply {
+            addMarker(MarkerOptions().position(home).title(homeTitle))
+            addMarker(MarkerOptions().position(work).title(workTitle))
+            animateCamera(CameraUpdateFactory.newLatLngZoom(home, 12F))
+            setOnMarkerClickListener { handleMarkerClick(it) }
+        }
+    }
+
+    private fun handleMarkerClick(marker: Marker): Boolean {
+        return when(marker.title) {
+            homeTitle -> { showBottomSheetDialogFragment() }
+            workTitle -> { showBottomSheetDialog() }
+            else -> false
+        }
+    }
+
+    private fun showBottomSheetDialogFragment(): Boolean {
+        val bottomSheetFragment = BottomSheetFragment()
+        bottomSheetFragment.show(parentFragmentManager,bottomSheetFragment.tag)
+        return true
+    }
+
+    private fun showBottomSheetDialog(): Boolean {
+        context?.let {
+            BottomSheetDialog(it).apply {
+                setContentView(R.layout.bottom_sheet_layout)
+            }.show()
+        }
+        return true
     }
 }
