@@ -16,7 +16,7 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.mrskar.samples.R
-import com.mrskar.samples.widgets.BottomSheetFragment
+import com.mrskar.samples.widgets.BottomSheetDialogFragment
 
 class MapsFragment : Fragment() {
 
@@ -70,7 +70,7 @@ class MapsFragment : Fragment() {
     }
 
     private fun showBottomSheetDialogFragment(): Boolean {
-        val bottomSheetFragment = BottomSheetFragment()
+        val bottomSheetFragment = BottomSheetDialogFragment()
         bottomSheetFragment.show(parentFragmentManager,bottomSheetFragment.tag)
         return true
     }
