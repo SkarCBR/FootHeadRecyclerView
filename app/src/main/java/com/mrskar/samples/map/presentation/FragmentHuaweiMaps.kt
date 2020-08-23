@@ -18,7 +18,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.mrskar.samples.R
 import com.mrskar.samples.widgets.BottomSheetDialogFragment
 
-class MapsFragment : Fragment() {
+class FragmentHuaweiMaps : Fragment() {
 
     private val homeTitle = "Home"
     private val workTitle = "Work"
@@ -41,7 +41,7 @@ class MapsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_maps, container, false)
+        return inflater.inflate(R.layout.fragment_huawei_maps, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

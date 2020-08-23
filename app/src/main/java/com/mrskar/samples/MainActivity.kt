@@ -3,8 +3,8 @@ package com.mrskar.samples
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.mrskar.samples.fragmentthree.presentation.FragmentThree
-import com.mrskar.samples.map.presentation.MapsFragment
+import com.mrskar.samples.googlemaps.presentation.FragmentGoogleMaps
+import com.mrskar.samples.map.presentation.FragmentHuaweiMaps
 import com.mrskar.samples.recyclerview.presentation.RecyclerViewFragment
 import com.mrskar.samples.vm.MainViewModel
 import com.mrskar.samples.vm.getViewModelInstance
@@ -16,9 +16,9 @@ class MainActivity : AppCompatActivity() {
 
     private val recyclerFragment =
         RecyclerViewFragment()
-    private val mapFragment = MapsFragment()
+    private val mapFragment = FragmentHuaweiMaps()
     private val fragmentThree =
-        FragmentThree()
+        FragmentGoogleMaps()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

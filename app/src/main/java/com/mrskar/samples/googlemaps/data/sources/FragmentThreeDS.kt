@@ -1,6 +1,6 @@
-package com.mrskar.samples.fragmentthree.data.sources
+package com.mrskar.samples.googlemaps.data.sources
 
-import com.mrskar.samples.fragmentthree.data.model.TestModel
+import com.mrskar.samples.googlemaps.data.model.TestModel
 import kotlin.random.Random
 
 class FragmentThreeDS {

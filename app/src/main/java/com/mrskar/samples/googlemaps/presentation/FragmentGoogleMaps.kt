@@ -1,4 +1,4 @@
-package com.mrskar.samples.fragmentthree.presentation
+package com.mrskar.samples.googlemaps.presentation
 
 import android.os.Bundle
 import android.util.Log
@@ -22,7 +22,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HIDDEN
 import com.mrskar.samples.R
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 
-class FragmentThree : Fragment() {
+class FragmentGoogleMaps : Fragment() {
 
     private val homeTitle = "Home"
     private val workTitle = "Work"
@@ -40,7 +40,7 @@ class FragmentThree : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_three, container, false)
+        return inflater.inflate(R.layout.fragment_google_maps, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

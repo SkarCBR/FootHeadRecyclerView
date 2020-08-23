@@ -1,4 +1,4 @@
-package com.mrskar.samples.fragmentthree.data.model
+package com.mrskar.samples.googlemaps.data.model
 
 data class TestModel(
     val id: Int,
