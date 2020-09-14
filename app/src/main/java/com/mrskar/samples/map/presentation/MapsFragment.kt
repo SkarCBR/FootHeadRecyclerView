@@ -22,6 +22,7 @@ class MapsFragment : Fragment() {
 
     private val homeTitle = "Home"
     private val workTitle = "Work"
+    private lateinit var map: GoogleMap
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -33,7 +34,8 @@ class MapsFragment : Fragment() {
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
-        setInitialPosition(googleMap)
+        map = googleMap
+        setInitialPosition(map)
     }
 
     override fun onCreateView(
