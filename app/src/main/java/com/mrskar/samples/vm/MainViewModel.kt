@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mrskar.samples.R
-import com.mrskar.samples.fragmentthree.data.model.TestModel
-import com.mrskar.samples.fragmentthree.data.repository.FragmentThreeRepo
+import com.mrskar.samples.googlemaps.data.model.TestModel
+import com.mrskar.samples.googlemaps.data.repository.FragmentThreeRepo
 import com.mrskar.samples.recyclerview.presentation.model.AnimationModel
 import com.mrskar.samples.recyclerview.presentation.model.ContentModel
 import com.mrskar.samples.recyclerview.presentation.model.FootHeadItemContract

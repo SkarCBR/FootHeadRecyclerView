@@ -12,7 +12,7 @@ import com.mrskar.samples.R
 import com.mrskar.samples.vm.MainViewModel
 import com.mrskar.samples.vm.getViewModelInstance
 
-class BottomSheetFragment: BottomSheetDialogFragment() {
+class BottomSheetDialogFragment: BottomSheetDialogFragment() {
 
     private lateinit var viewModel: MainViewModel
 
