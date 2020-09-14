@@ -1,4 +1,4 @@
-package com.mrskar.samples.fragmentthree.presentation
+package com.mrskar.samples.googlemaps.presentation
 
 import android.os.Bundle
 import android.util.Log
@@ -20,9 +20,11 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_EXPANDE
 import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HALF_EXPANDED
 import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HIDDEN
 import com.mrskar.samples.R
+import com.mrskar.samples.databinding.FragmentGoogleMapsBinding
+import com.mrskar.samples.databinding.FragmentHuaweiMapsBinding
 import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 
-class FragmentThree : Fragment() {
+class FragmentGoogleMaps : Fragment() {
 
     private val homeTitle = "Home"
     private val workTitle = "Work"
@@ -30,6 +32,8 @@ class FragmentThree : Fragment() {
     private val work = LatLng(41.3864328,2.1685704)
 
     private var googleMap: GoogleMap? = null
+    private var _binding: FragmentGoogleMapsBinding? = null
+    private val binding get() = _binding!!
 
     private val callback = OnMapReadyCallback { googleMap ->
         setUpMap(googleMap)
@@ -40,7 +44,8 @@ class FragmentThree : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_three, container, false)
+        _binding = FragmentGoogleMapsBinding.inflate(inflater)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -53,6 +58,11 @@ class FragmentThree : Fragment() {
         bottom_sheet_toolbar.setNavigationOnClickListener { hideBottomSheetView() }
 
         setUpBottomSheetLayout()
+    }
+
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
     }
 
     private fun setUpBottomSheetLayout() {
