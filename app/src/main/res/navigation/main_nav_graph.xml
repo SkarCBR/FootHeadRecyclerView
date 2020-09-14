@@ -11,14 +11,14 @@
         android:label="fragment_recycler_view"
         tools:layout="@layout/fragment_recycler_view" />
     <fragment
-        android:id="@+id/mapsFragment"
-        android:name="com.mrskar.samples.map.presentation.MapsFragment"
+        android:id="@+id/googleMapsFragment"
+        android:name="com.mrskar.samples.googlemaps.presentation.FragmentGoogleMaps"
         android:label="MapsFragment"
-        tools:layout="@layout/fragment_maps" />
+        tools:layout="@layout/fragment_google_maps" />
     <fragment
-        android:id="@+id/fragmentThree"
-        android:name="com.mrskar.samples.fragmentthree.presentation.FragmentThree"
+        android:id="@+id/huaweiMapsFragment"
+        android:name="com.mrskar.samples.huaweimaps.presentation.FragmentHuaweiMaps"
         android:label="FragmentThree"
-        tools:layout="@layout/fragment_three" />
+        tools:layout="@layout/fragment_huawei_maps" />
 
 </navigation>
