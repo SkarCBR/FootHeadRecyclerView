@@ -42,7 +42,7 @@ dependencies {
     testImplementation("junit:junit:4.13")
     androidTestImplementation("androidx.test:runner:1.2.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
-    androidTestImplementation("org.mockito:mockito-core:1.10.19")
+    androidTestImplementation("org.mockito:mockito-core:3.2.4")
     implementation("androidx.recyclerview:recyclerview:1.1.0")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
 }
