@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.mrskar.samples.googlemaps.presentation.FragmentGoogleMaps
-import com.mrskar.samples.map.presentation.FragmentHuaweiMaps
+import com.mrskar.samples.huaweimaps.presentation.FragmentHuaweiMaps
 import com.mrskar.samples.recyclerview.presentation.RecyclerViewFragment
 import com.mrskar.samples.vm.MainViewModel
 import com.mrskar.samples.vm.getViewModelInstance
