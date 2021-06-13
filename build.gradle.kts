@@ -9,7 +9,7 @@ buildscript {
         maven { url = uri("http://developer.huawei.com/repo/") }
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:4.0.1")
+        classpath("com.android.tools.build:gradle:4.2.1")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.61")
         classpath("com.justpinch:androidanalyzer:1.1.1")
         classpath("com.huawei.agconnect:agcp:1.3.1.300")
